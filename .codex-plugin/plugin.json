@@ -1,0 +1,26 @@
+{
+  "name": "codex-rate-limit-guard",
+  "version": "0.1.0+codex.20260830092033",
+  "description": "Supervise Codex CLI runs and retry transient 429/500 failures after cleaning up child processes.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Rate Limit Guard",
+    "shortDescription": "Retry transient Codex CLI rate-limit failures.",
+    "longDescription": "Runs Codex exec under a local supervisor that detects 429/500 and rate-limit failures, stops the process tree, waits with backoff, and resumes the latest session.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Automation",
+      "CLI",
+      "Reliability"
+    ],
+    "defaultPrompt": [
+      "Run this task with rate-limit retry protection.",
+      "Configure the retry count and cooldown for Codex.",
+      "Explain how to resume a guarded Codex run."
+    ]
+  }
+}
