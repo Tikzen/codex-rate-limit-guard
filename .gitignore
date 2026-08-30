@@ -3,3 +3,13 @@ Thumbs.db
 *.log
 *.tmp
 dist/
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.secret
+*.credentials*
+config.toml
+settings.yaml
