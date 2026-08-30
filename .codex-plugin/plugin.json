@@ -1,7 +1,9 @@
 {
   "name": "codex-rate-limit-guard",
-  "version": "0.1.0+codex.20260830092033",
-  "description": "Supervise Codex CLI runs and retry transient 429/500 failures after cleaning up child processes.",
+  "version": "0.1.0+codex.20260830093333",
+  "description": "Supervise Codex CLI runs and retry transient 429/500 failures with configurable backoff and resume.",
+  "homepage": "https://github.com/Tikzen/codex-rate-limit-guard",
+  "repository": "https://github.com/Tikzen/codex-rate-limit-guard",
   "author": {
     "name": "Local developer"
   },
