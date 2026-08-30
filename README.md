@@ -11,10 +11,28 @@ tree by default.
 - 监控通过脚本启动的 `codex exec` 任务
 - 默认识别 `429,500,502,503,504`
 - 错误编号、最大重试次数、等待时间都可以手动输入或通过参数设置
+- **无人值守模式**：使用 `-NoPrompt` 后不询问任何参数，直接按配置自动等待、重试并恢复任务，适合脚本、计划任务和长时间运行
 - 支持指数退避和最大等待时间
 - 429/500 后自动执行 `codex exec resume --last`
 - 默认不主动终止 Codex 或子进程
 - 可选 `-KillProcessTree` 处理真正卡死的任务
+
+### 两种运行模式
+
+| 模式 | 是否询问参数 | 启动方式 |
+| --- | --- | --- |
+| 交互式 | 会询问错误编号、重试次数和等待时间 | 不传 `-NoPrompt` |
+| **无人值守** | 不询问，直接使用命令行参数或默认值 | 传入 **`-NoPrompt`** |
+
+无人值守模式的最短命令：
+
+```powershell
+& "$HOME\plugins\codex-rate-limit-guard\scripts\codex-rate-limit-guard.ps1" `
+  -NoPrompt -- exec "继续完成这个任务"
+```
+
+`-NoPrompt` 就是无人值守模式开关。它是 CLI 参数，不会显示为 Codex App 插件页中的
+按钮或开关。
 
 ### 安装
 
@@ -89,10 +107,25 @@ Initial cooldown seconds [60]:
 - Supervises Codex CLI `codex exec` runs
 - Retries configurable transient HTTP errors; defaults to `429,500,502,503,504`
 - Lets users set error codes, retry count, and cooldown interactively or by flags
+- **Unattended mode**: `-NoPrompt` disables all questions and automatically waits, retries, and resumes using configured values; suitable for scripts and long-running tasks
 - Uses exponential backoff with a maximum delay
 - Resumes the latest session with `codex exec resume --last`
 - Does not terminate Codex or child processes by default
 - Provides optional `-KillProcessTree` for genuinely stuck runs
+
+### Run modes
+
+| Mode | Prompts for settings | How to enable |
+| --- | --- | --- |
+| Interactive | Yes | Omit `-NoPrompt` |
+| **Unattended** | No | Pass **`-NoPrompt`** |
+
+Minimal unattended command:
+
+```powershell
+& "$HOME\plugins\codex-rate-limit-guard\scripts\codex-rate-limit-guard.ps1" `
+  -NoPrompt -- exec "Continue the task"
+```
 
 ### Installation
 

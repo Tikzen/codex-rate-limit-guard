@@ -1,6 +1,6 @@
 {
   "name": "codex-rate-limit-guard",
-  "version": "0.1.0+codex.20260830093333",
+  "version": "0.1.0+codex.20260830094017",
   "description": "Supervise Codex CLI runs and retry transient 429/500 failures with configurable backoff and resume.",
   "homepage": "https://github.com/Tikzen/codex-rate-limit-guard",
   "repository": "https://github.com/Tikzen/codex-rate-limit-guard",
@@ -20,8 +20,8 @@
       "Reliability"
     ],
     "defaultPrompt": [
-      "Run this task with rate-limit retry protection.",
-      "Configure the retry count and cooldown for Codex.",
+      "Run this task unattended with rate-limit retry protection.",
+      "Configure unattended retry count, error codes, and cooldown.",
       "Explain how to resume a guarded Codex run."
     ]
   }
